@@ -1,0 +1,15 @@
+{
+  "name": "vaultdragoncodingtest",
+  "version": "1.0.0",
+  "description": "Coding Test for Vault Dragon by Saloni Kaur",
+  "main": "index.js",
+  "dependencies": {
+    "mongodb": "^2.2.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "saloni kaur",
+  "license": "ISC"
+}
