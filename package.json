@@ -4,7 +4,10 @@
   "description": "Coding Test for Vault Dragon by Saloni Kaur",
   "main": "index.js",
   "dependencies": {
-    "mongodb": "^2.2.5"
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.5",
+    "mongoose": "^4.5.9"
   },
   "devDependencies": {},
   "scripts": {
