@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var KeyVal = mongoose.model('KeyVal', {
   key: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   value: {
     type: String
