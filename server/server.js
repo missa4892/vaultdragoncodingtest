@@ -48,6 +48,19 @@ app.get('/keyvals', (req, res) => {
   });
 });
 
+app.get('/keyvals/:mykey', (req, res) => {
+  var mykey = req.params.mykey;
+  var query   = { 'key': mykey };
+  KeyVal.findOne(query, 'value').then((doc) => {
+    if (!doc){
+      return res.status(404).send();
+    }
+    res.send(doc.value);
+  }).catch((e) => {
+    res.status(400).send(e);
+  });
+});
+
 app.listen(3000, () => {
   console.log('Started on port 3000');
 });
