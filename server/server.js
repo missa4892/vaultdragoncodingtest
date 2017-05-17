@@ -1,11 +1,13 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var moment = require('moment');
 
 var {mongoose} = require('./db/mongoose');
 var {KeyVal} = require('./models/keyval');
 var {formatDate} = require('./helpers/formatDate');
 
 var app = express();
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
@@ -50,19 +52,27 @@ app.get('/keyvals', (req, res) => {
 
 app.get('/keyvals/:mykey', (req, res) => {
   var mykey = req.params.mykey;
+  var timestamp = req.query.timestamp;
+  var timeFormatted;
   var query   = { 'key': mykey };
+  if (timestamp) {
+    timeFormatted = moment.unix(timestamp);
+    debugger;
+    query = {'key': mykey, 'last_edit_timestamp': timeFormatted };
+  }
   KeyVal.findOne(query, 'value').then((doc) => {
     if (!doc){
       return res.status(404).send();
     }
+    console.log(doc);
     res.send(doc.value);
   }).catch((e) => {
     res.status(400).send(e);
   });
 });
 
-app.listen(3000, () => {
-  console.log('Started on port 3000');
+app.listen(port, () => {
+  console.log(`Started up at port ${port}`);
 });
 
 module.exports = {app};
