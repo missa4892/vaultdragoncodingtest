@@ -6,7 +6,6 @@ Helper methods for formatting datetime
 /**
 Returns hh:mm(am/pm)
 */
-
 var formatTime = (timeFromDb) => {
   if (timeFromDb != null){
     var timestamp = new Date(timeFromDb);

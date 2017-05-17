@@ -1,7 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var moment = require('moment');
-const timeZone = require('mongoose-timezone');
 
 var {mongoose} = require('./db/mongoose');
 var {KeyVal} = require('./models/keyval');

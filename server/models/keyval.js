@@ -1,7 +1,5 @@
 var mongoose = require('mongoose');
 
-const timeZone = require('mongoose-timezone');
-
 var KeyVal = mongoose.model('KeyVal', {
   key: {
     type: String,
@@ -16,6 +14,5 @@ var KeyVal = mongoose.model('KeyVal', {
     default: Date.now
   }
 });
-
 
 module.exports = {KeyVal};
