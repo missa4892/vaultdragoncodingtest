@@ -32,13 +32,11 @@ var formatTime = (timeFromDb) => {
 };
 
 /**
-Returns ISO Standard time format
+Returns current Standard time format
 */
 var formatDate = (timeFromDb) => {
   if (timeFromDb != null){
-    var timestamp = new Date(timeFromDb).toISOString().
-                        replace(/T/, ' ').      // replace T with a space
-                        replace(/\..+/, '');     // delete the dot and everything after
+    var timestamp = new Date(timeFromDb).toLocaleTimeString();
     return timestamp;
   }
   return '';
